@@ -1,40 +1,80 @@
+:root {
+  --bg: #fff;
+  --fg: #333;
+  --accent: #007bff;
+}
+[data-theme="dark"] {
+  --bg: #121212;
+  --fg: #eee;
+  --accent: #90caf9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    text-align: center;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
 }
-
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-
-main {
-    padding: 40px;
+.nav-menu ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
 }
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.nav-menu a {
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: bold;
 }
-
-button:hover {
-    background-color: #0056b3;
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
 }
-
+section {
+  padding: 4rem 2rem;
+}
+.projects-container,
+.blog-container {
+  display: grid;
+  gap: 1.5rem;
+}
+.projects-container {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.blog-container {
+  grid-template-columns: 1fr;
+}
 footer {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg);
+}
+button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+@media (max-width: 768px) {
+  .nav-menu ul { display: none; }
+  .hamburger { display: block; font-size: 1.5rem; cursor: pointer; }
 }
